@@ -1,0 +1,58 @@
+.checkbox{
+    position: relative;
+    margin: 40px 20px 30px;
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.checkbox > span{
+    color: transparent;
+}
+
+.checkbox.checked{
+    animation-name: check-outter;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.checkbox.checked > div{
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 0; 
+    width: 46px; 
+    height: 46px;
+    animation-name: check-inner;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+.checkbox.checked > span{
+    color: black;
+    position: absolute;
+    left: 8px;
+    top: 0;
+    font-weight: bold;
+    font-size: 38px;
+}
+
+@keyframes check-inner{
+    0%{
+        width: 46px;
+    }
+    100%{
+        width: 0;
+    }
+}
+
+@keyframes check-outter{
+    70%{
+        transform: scale(0.85);
+    }
+    100%{
+    }
+}

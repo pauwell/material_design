@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="css/expandable.css" rel="stylesheet">
+    <link href="css/checkbox.css" rel="stylesheet">
+    <link href="css/card.css" rel="stylesheet">
+    <script src="js/expandable.js" type="text/javascript"></script>
+    <script src="js/checkbox.js" type="text/javascript"></script>
     <style>
         body, body *{
             margin: 0;
@@ -14,177 +19,19 @@
         }
         body{
             font-family: 'Roboto', sans-serif;
+            background-color: #01579b;
         }
-        a{
-            text-decoration: none;
-            color: black;
-        }
-        b{
-            color: coral;
-        }
-        .card{
-            border: 1px solid lightgray;
-            background-color: white;
-            position: relative;
-            height: 400px;
-            width: 250px;      
-            cursor: pointer;      
-            
-            /* @ Remove */
-            top: 40px;
-            left: 50px;
+        .shadow{
+            box-shadow: 0 1px 1px rgba(0,0,0,.5);
         }
 
-        .card > .background{
-            width: 100%; 
-            height: 100%;
-            background-image: url("img/example_led.jpg");
-            background-size: auto 100%;
+        .shadow-dp2{ 
+            box-shadow: 0 0 3px rgba(0,0,0,.12), 0 3px 3px rgba(0,0,0,.2);
         }
-
-        .card > .info{
-            position: absolute;
-            display: flex;
-            top: 0; 
-            left: 0;
-            width: 100%;
-            opacity: 0;
-            padding-top: 10px;
-        }
-
-        .card > .info > *{
-            flex: 1 100%;
-            text-align: center;
-        }
-
-        .card > .overlay{
-            border-top: 2px solid gray;
-            background-color: whitesmoke;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 35%;
-        }
-
-        .card > .text{
-            position: absolute;
-            bottom: 0;
-            text-align: center;
-            padding-bottom: 10px;
-        }
-        .text > *:first-child{
-            color: coral;
-        }
-        .text > *{
-            word-wrap: break-word;
-        }
-
-        .card:hover > .background{
-            animation-name: card-mouse-enter-background;
-            animation-duration: 0.5s;
-            animation-fill-mode: forwards;
-        }
-
-        .card:hover > .info{
-            animation-name: card-mouse-enter-info;
-            animation-duration: 0.5s;
-            animation-fill-mode: forwards;
-        }
-
-        .card:hover > .overlay{
-            animation-name: card-mouse-enter-overlay;
-            animation-duration: 0.3s;
-            animation-fill-mode: forwards;
-        }
-
-        .card:hover > .text{
-            animation-name: card-mouse-enter-text;
-            animation-duration: 0.3s;
-            animation-fill-mode: forwards;
-        }
-        
-        @keyframes card-mouse-enter-background {
-            100%{
-                background-size: auto 120%;
-                opacity: 0.3;
-            }
-        }
-
-        @keyframes card-mouse-enter-info {
-            0%{
-                opacity: 0;
-            }
-            100%{
-                opacity: 1;
-            }
-        }
-
-        @keyframes card-mouse-enter-overlay {
-            0%{
-                height: 35%;
-            }
-            100%{
-                height: 0%;
-            }
-        }
-
-        @keyframes card-mouse-enter-text {
-            100%{
-                font-size: 1.2em;
-            }
-        }
-
-        .card:not(:hover) > .background{
-            font-size: 3em;
-            animation-name: card-mouse-leave-background;
-            animation-duration: 0.5s;
-            animation-fill-mode: forwards;
-        }
-
-        .card:not(:hover) > .overlay{
-            animation-name: card-mouse-leave-overlay;
-            animation-duration: 0.3s;
-            animation-fill-mode: forwards;
-        }
-
-        .card:not(:hover) > .text{
-            animation-name: card-mouse-leave-text;
-            animation-duration: 0.3s;
-            animation-fill-mode: forwards;
-        }
-
-        @keyframes card-mouse-leave-background {
-            0%{
-                background-size: auto 120%; 
-                opacity: 0.3;  
-            }
-            100%{
-                background-size: auto 100%;
-                opacity: 1;
-            }
-        }
-
-        @keyframes card-mouse-leave-overlay {
-            0%{
-                height: 0;   
-            }
-            100%{
-                height: 35%;
-            }
-        }
-
-        @keyframes card-mouse-leave-text {
-            0%{
-                font-size: 1.2em; 
-            }
-            100%{
-                font-size: initial;
-            }
-        }
-        
     </style>
 </head>
 <body>
+    <!-- Card demo. -->
     <div class="card">
         <div class="background"></div>
         <div class="info">
@@ -198,6 +45,24 @@
             <p>Leuchte Vela für außen, eckig, schwarz, IP44, 4W, 200lm, warm-weiß</p>
             <small>Art.-Nr.:  LC-L-112-WW</small>
         </div>
+    </div>
+
+    <!-- Checkbox demo. -->
+    <div class="checkbox shadow" onclick="check_box(this);">
+        <span>&#x2714;</span>
+        <div></div>
+    </div>
+
+    <!-- Expandable button demo. -->
+    <div class="expandable shadow-dp2" onclick="toggle_expandable(this);">
+        <h1>CLICK ME TO CLOSE</h1>
+        <p>
+            Molestiae et qui hic magnam. Culpa a soluta delectus ab. Eius rerum impedit nobis et modi dolorum voluptatem. Molestias amet aut officia odio sed aliquam quaerat. Placeat tenetur exercitationem expedita blanditiis. Nulla corrupti quae harum non maiores.
+            Et voluptas ex aut. Est quis perspiciatis magnam quis optio omnis nam. Sapiente libero maxime nobis nobis et enim.
+            Mollitia et iusto et ullam voluptatem ut ipsam. Ut exercitationem exercitationem maxime doloribus.</p><p> Labore et voluptas ut ab veritatis voluptate autem. Aut omnis alias placeat officiis harum.
+            Saepe ad rem aut. Ut alias ratione fugiat ut ab. </p><p>Suscipit est nisi nemo. Debitis dolor odit magni qui repudiandae voluptas.
+            In aut et illo. Aut enim nesciunt cupiditate est. Error quidem non facere numquam non deserunt voluptatem et. Eius enim eum dolores. Beatae consequuntur quia autem consequatur.
+        </p>
     </div>
 </body>
 </html>
