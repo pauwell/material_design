@@ -28,11 +28,50 @@
         .shadow-dp2{ 
             box-shadow: 0 0 3px rgba(0,0,0,.12), 0 3px 3px rgba(0,0,0,.2);
         }
+
+        .button{
+            background-color: crimson;
+            color: wheat;
+            font-size: 1.5em;
+            border: 1px solid;
+            position: relative;
+            width: fit-content;
+            padding: 10px 30px;
+            cursor: pointer;
+
+            margin-top: 50px;
+            margin-left: 100px;
+        }
+
+        .button > .background{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .button.ripple > .background{
+            /* TODO */
+            background-color: orangered;
+        }
     </style>
+    <script>
+        function ripple(elem){
+            elem.classList.toggle("ripple");
+        }
+    </script>
 </head>
 <body>
+    <!-- Test ripple with button. -->
+    <div class="button" onclick="ripple(this);">
+        <div class="background">
+
+        </div>
+        <b>Ripple me!</b>
+    </div>
+
     <!-- Card demo. -->
-    <div class="card">
+    <div class="card shadow-dp2">
         <div class="background"></div>
         <div class="info">
             <a href="#"><p><b>&#10084;</b> like</p></a>
@@ -43,7 +82,7 @@
         <div class="text">
             <h3>LED Wandleuchte</h3>
             <p>Leuchte Vela für außen, eckig, schwarz, IP44, 4W, 200lm, warm-weiß</p>
-            <small>Art.-Nr.:  LC-L-112-WW</small>
+            <p><small>Art.-Nr.:  LC-L-112-WW</small></p>
         </div>
     </div>
 
