@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
         body, body *{
             margin: 0;
@@ -12,7 +13,14 @@
             box-sizing: border-box;
         }
         body{
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        b{
+            color: coral;
         }
         .card{
             border: 1px solid lightgray;
@@ -65,7 +73,10 @@
             padding-bottom: 10px;
         }
         .text > *:first-child{
-            color: indianred;
+            color: coral;
+        }
+        .text > *{
+            word-wrap: break-word;
         }
 
         .card:hover > .background{
@@ -177,14 +188,14 @@
     <div class="card">
         <div class="background"></div>
         <div class="info">
-            <p>&#10084; like</p>
-            <p>&#x23f0; 32min</p>
+            <a href="#"><p><b>&#10084;</b> like</p></a>
+            <a href="#"><p><b>&#x23f0;</b> 32min</p></a>
         </div>
         <div class="overlay">
         </div>
         <div class="text">
             <h3>LED Wandleuchte</h3>
-            <p><b>LED Wandleuchte</b> Vela für außen, eckig, schwarz, IP44, 4W, 200lm, warm-weiß</p>
+            <p>Leuchte Vela für außen, eckig, schwarz, IP44, 4W, 200lm, warm-weiß</p>
             <small>Art.-Nr.:  LC-L-112-WW</small>
         </div>
     </div>
