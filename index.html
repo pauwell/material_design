@@ -35,63 +35,125 @@
             font-size: 1.5em;
             border: 1px solid;
             position: relative;
+            overflow: hidden;
             width: fit-content;
             padding: 10px 30px;
             cursor: pointer;
-
             margin-top: 50px;
             margin-left: 100px;
+
+            /* Yeah..? */
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            -ms-appearance: button;
+            -o-appearance: button;
         }
 
         .button > .background{
+            background-color: rgb(29, 29, 29);
+            opacity: 0.7;
+            transform: scale(0);
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 68px;
+            height: 68px;
+            border-radius: 34px;
             top: 0;
             left: 0;
         }
+
+        .button:active{
+            transform: scale(1.01);
+        }
         .button.ripple > .background{
-            /* TODO */
-            background-color: orangered;
+            animation-name: ripple;
+            animation-duration: 0.2s;
+        }
+
+        @keyframes ripple{
+            0%{
+                transform: scale(0);
+            }
+            100%{
+                transform: scale(2.2);
+            }
         }
     </style>
     <script>
-        function ripple(elem){
-            elem.classList.toggle("ripple");
+        document.onmousemove = handleMouseMove;
+        var mouse_x = 0;
+        var mouse_y = 0;
+
+        function handleMouseMove(event) {
+            var dot, eventDoc, doc, body, pageX, pageY;
+            event = event || window.event; // IE-ism
+            mouse_x = event.pageX;
+            mouse_y = event.pageY;
+        }
+
+        function button_ripple(elem){
+            elem.classList.add("ripple");
+            console.log(mouse_x + ", " + mouse_y);
+
+            var elem_rect = elem.getBoundingClientRect();
+            var local_x = mouse_x - elem_rect.left;
+            var local_y = mouse_y - elem_rect.top; 
+            console.log(local_x + ", " + local_y);
+
+            var button = document.querySelector('.button>.background');
+            button.style.left = (local_x - 34) + "px";
+            button.style.top = (local_y - 34) + "px";
+            setTimeout(()=>{ elem.classList.remove("ripple"); }, 200);
         }
     </script>
 </head>
 <body>
-    <!-- Test ripple with button. -->
-    <div class="button" onclick="ripple(this);">
-        <div class="background">
-
+    <!-- Form example. -->
+    <form>
+        <!-- Test ripple with button. -->
+        <div class="button shadow-dp2" onclick="button_ripple(this);">
+            <div class="background"></div>
+            <p><b>Ripple me!</b></p>
         </div>
-        <b>Ripple me!</b>
-    </div>
+
+        <!-- Checkbox demo. -->
+        <div class="checkbox shadow" onclick="check_box(this);">
+            <span>&#x2714;</span>
+            <div></div>
+        </div>
+    </form>
 
     <!-- Card demo. -->
-    <div class="card shadow-dp2">
-        <div class="background"></div>
-        <div class="info">
-            <a href="#"><p><b>&#10084;</b> like</p></a>
-            <a href="#"><p><b>&#x23f0;</b> 32min</p></a>
+    <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+        <div class="card shadow-dp2">
+            <div class="background" style="background-image: url('../img/example_led.jpg');"></div>
+            <div class="info">
+                <a href="#"><p><b>&#10084;</b> like</p></a>
+                <a href="#"><p><b>&#x23f0;</b> 32min</p></a>
+            </div>
+            <div class="overlay">
+            </div>
+            <div class="text">
+                <h3>LED Wandleuchte</h3>
+                <p>Leuchte Vela für außen, eckig, schwarz, IP44, 4W, 200lm, warm-weiß</p>
+                <p><small>Art.-Nr.:  LC-L-112-WW</small></p>
+            </div>
         </div>
-        <div class="overlay">
-        </div>
-        <div class="text">
-            <h3>LED Wandleuchte</h3>
-            <p>Leuchte Vela für außen, eckig, schwarz, IP44, 4W, 200lm, warm-weiß</p>
-            <p><small>Art.-Nr.:  LC-L-112-WW</small></p>
+        <div class="card shadow-dp2">
+            <div class="background" style="background-image: url('../img/example_led2.jpg');"></div>
+            <div class="info">
+                <a href="#"><p><b>&#10084;</b> like</p></a>
+                <a href="#"><p><b>&#x23f0;</b> 32min</p></a>
+            </div>
+            <div class="overlay">
+            </div>
+            <div class="text">
+                <h3>LED Treppen-Licht</h3>
+                <p>LED Treppen-Licht Wand-Einbauleuchte, eckig, 8x8cm, 230V, warm-weiß</p>
+                <p><small>Art.-Nr.:  LC-EL-081-WW</small></p>
+            </div>
         </div>
     </div>
-
-    <!-- Checkbox demo. -->
-    <div class="checkbox shadow" onclick="check_box(this);">
-        <span>&#x2714;</span>
-        <div></div>
-    </div>
-
+    <hr>
     <!-- Expandable button demo. -->
     <div class="expandable shadow-dp2" onclick="toggle_expandable(this);">
         <h1>CLICK ME TO CLOSE</h1>

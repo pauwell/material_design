@@ -12,10 +12,6 @@
     height: 400px;
     width: 250px;      
     cursor: pointer;      
-    
-    /* @ Remove */
-    top: 40px;
-    left: 50px;
 }
 
 .card > .background{
