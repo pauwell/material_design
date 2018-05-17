@@ -15,42 +15,8 @@
     <script src="js/expandable.js" type="text/javascript"></script>
     <script src="js/checkbox.js" type="text/javascript"></script>
     <script src="js/ripple.js" type="text/javascript"></script>
-    <style>
-        .test-check{
-            width: 48px;
-            height: 48px;
-            background-color: #fff;
-            position: relative;
-        }
-
-        .test-check > .a, .test-check > .b{
-            position: absolute;
-            background-color: coral;
-            height: 12px;
-        }
-
-        .test-check > .a{
-            width: 30px;
-            top: 29px;
-            left: 1px;
-            transform: rotate(30deg);
-        }
-
-        .test-check > .b{
-            width: 45px;
-            top: 20px;
-            left: 10px;
-            transform: rotate(-60deg);
-        }
-    </style>
 </head>
 <body>
-    <div class="test-check shadow-dp2">
-        <div class="a shadow-dp2"></div>
-        <div class="b shadow-dp2"></div>
-    </div>
-
-
     <!-- Form example. -->
     <form>
         <!-- Test ripple with button. -->
@@ -61,8 +27,8 @@
 
         <!-- Checkbox demo. -->
         <div class="checkbox shadow" onclick="check_box(this);">
-            <span>&#x2714;</span>
-            <div></div>
+            <div class="shadow-dp2"></div>
+            <div class="shadow-dp2"></div>
         </div>
     </form>
 
