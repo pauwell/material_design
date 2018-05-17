@@ -1,6 +1,6 @@
 @keyframes hide-expandable{
     0%{
-        background-color: #0091ea;
+        background-color: white;
         color: transparent;
         height: 250px;
         width: 94%;
@@ -13,7 +13,7 @@
         color: transparent;
     }
     100%{
-        background-color: #f4511e;
+        background-color: coral;
         color: inherit;
         width: 48px;
         height: 48px;
@@ -28,7 +28,7 @@
 
 @keyframes show-expandable{
     0%{
-        background-color: #f4511e;
+        background-color: coral;
         color: transparent;
         font-size: 0;
         width: 48px;
@@ -40,8 +40,8 @@
         color: transparent;
     }
     100%{
-        background-color: #0091ea;
-        color: white;
+        background-color: white;
+        color: black;
         width: 94%;
         margin-left: 3%;
         margin-right: 3%;
@@ -50,7 +50,7 @@
 }
 
 .expandable{
-    background-color: #0091ea;
+    background-color: white;
     cursor: pointer;
     width: 94%;
     margin-left: 3%;

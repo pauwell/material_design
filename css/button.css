@@ -1,0 +1,48 @@
+.button{
+    background-color: coral;
+    color: white;
+    font-size: 1.5em;
+    border: 1px solid;
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+    padding: 10px 30px;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-left: 100px;
+
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -ms-appearance: button;
+    -o-appearance: button;
+    appearance: button;
+}
+
+.button > .background{
+    background-color: rgb(29, 29, 29);
+    opacity: 0.7;
+    transform: scale(0);
+    position: absolute;
+    width: 68px;
+    height: 68px;
+    border-radius: 34px;
+    top: 0;
+    left: 0;
+}
+
+.button:active{
+    transform: scale(1.01);
+}
+.button.ripple > .background{
+    animation-name: button-ripple;
+    animation-duration: 0.2s;
+}
+
+@keyframes button-ripple{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(2.2);
+    }
+}

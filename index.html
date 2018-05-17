@@ -6,107 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/shadow.css" rel="stylesheet">
     <link href="css/expandable.css" rel="stylesheet">
     <link href="css/checkbox.css" rel="stylesheet">
     <link href="css/card.css" rel="stylesheet">
+    <link href="css/button.css" rel="stylesheet">
     <script src="js/expandable.js" type="text/javascript"></script>
     <script src="js/checkbox.js" type="text/javascript"></script>
+    <script src="js/ripple.js" type="text/javascript"></script>
     <style>
-        body, body *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            font-family: 'Roboto', sans-serif;
-            background-color: #01579b;
-        }
-        .shadow{
-            box-shadow: 0 1px 1px rgba(0,0,0,.5);
-        }
-
-        .shadow-dp2{ 
-            box-shadow: 0 0 3px rgba(0,0,0,.12), 0 3px 3px rgba(0,0,0,.2);
-        }
-
-        .button{
-            background-color: crimson;
-            color: wheat;
-            font-size: 1.5em;
-            border: 1px solid;
+        .test-check{
+            width: 48px;
+            height: 48px;
+            background-color: #fff;
             position: relative;
-            overflow: hidden;
-            width: fit-content;
-            padding: 10px 30px;
-            cursor: pointer;
-            margin-top: 50px;
-            margin-left: 100px;
-
-            /* Yeah..? */
-            -webkit-appearance: button;
-            -moz-appearance: button;
-            -ms-appearance: button;
-            -o-appearance: button;
         }
 
-        .button > .background{
-            background-color: rgb(29, 29, 29);
-            opacity: 0.7;
-            transform: scale(0);
+        .test-check > .a, .test-check > .b{
             position: absolute;
-            width: 68px;
-            height: 68px;
-            border-radius: 34px;
-            top: 0;
-            left: 0;
+            background-color: coral;
+            height: 12px;
         }
 
-        .button:active{
-            transform: scale(1.01);
-        }
-        .button.ripple > .background{
-            animation-name: ripple;
-            animation-duration: 0.2s;
+        .test-check > .a{
+            width: 30px;
+            top: 29px;
+            left: 1px;
+            transform: rotate(30deg);
         }
 
-        @keyframes ripple{
-            0%{
-                transform: scale(0);
-            }
-            100%{
-                transform: scale(2.2);
-            }
+        .test-check > .b{
+            width: 45px;
+            top: 20px;
+            left: 10px;
+            transform: rotate(-60deg);
         }
     </style>
-    <script>
-        document.onmousemove = handleMouseMove;
-        var mouse_x = 0;
-        var mouse_y = 0;
-
-        function handleMouseMove(event) {
-            var dot, eventDoc, doc, body, pageX, pageY;
-            event = event || window.event; // IE-ism
-            mouse_x = event.pageX;
-            mouse_y = event.pageY;
-        }
-
-        function button_ripple(elem){
-            elem.classList.add("ripple");
-            console.log(mouse_x + ", " + mouse_y);
-
-            var elem_rect = elem.getBoundingClientRect();
-            var local_x = mouse_x - elem_rect.left;
-            var local_y = mouse_y - elem_rect.top; 
-            console.log(local_x + ", " + local_y);
-
-            var button = document.querySelector('.button>.background');
-            button.style.left = (local_x - 34) + "px";
-            button.style.top = (local_y - 34) + "px";
-            setTimeout(()=>{ elem.classList.remove("ripple"); }, 200);
-        }
-    </script>
 </head>
 <body>
+    <div class="test-check shadow-dp2">
+        <div class="a shadow-dp2"></div>
+        <div class="b shadow-dp2"></div>
+    </div>
+
+
     <!-- Form example. -->
     <form>
         <!-- Test ripple with button. -->

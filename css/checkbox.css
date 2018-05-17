@@ -14,7 +14,7 @@
 
 .checkbox.checked{
     animation-name: check-outter;
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
     animation-timing-function: ease;
 }
@@ -27,7 +27,7 @@
     width: 46px; 
     height: 46px;
     animation-name: check-inner;
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
 }
