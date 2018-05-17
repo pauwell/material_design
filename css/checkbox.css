@@ -52,16 +52,30 @@
     animation-timing-function: ease-in;
 }
 
+.checkbox.unchecked > div{
+    display: block;
+}
+.checkbox.unchecked > div:first-of-type{
+    animation-name: uncheck-inner-a;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+.checkbox.unchecked > div:last-of-type{
+    animation-name: uncheck-inner-b;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
 
 @keyframes check-inner-a{
     0%{
-        width: 29px;
         top: 0;
         left: -20px;
         transform: rotate(0);
     }
     100%{
-        width: 29px;
         top: 28px;
         left: 1px;
         transform: rotate(30deg);
@@ -70,16 +84,47 @@
 
 @keyframes check-inner-b{
     0%{
-        width: 42px;
         top: -24px;
         left: 36px;
         transform: rotate(-50deg);
     }
     100%{
+        top: 19px;
+        left: 10px;
+        transform: rotate(-60deg);
+    }
+}
+
+@keyframes uncheck-inner-a{
+    0%{
+        display: block;
+        width: 29px;
+        top: 28px;
+        left: 1px;
+        transform: rotate(30deg);
+    }
+    100%{
+        width: 0;
+        top: 20px;
+        left: -20px;
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes uncheck-inner-b{
+    0%{
+        display: block;
         width: 42px;
         top: 19px;
         left: 10px;
         transform: rotate(-60deg);
+    }
+    100%{
+        display: block;
+        width: 0;
+        top: 0;
+        left: 60px;
+        transform: rotate(0);
     }
 }
 

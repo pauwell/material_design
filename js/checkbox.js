@@ -1,3 +1,10 @@
 function check_box(elem){
-    elem.classList.toggle("checked");
+    if(elem.classList.contains("checked")){
+        elem.classList.remove("checked");
+        elem.classList.add("unchecked");
+    }else{
+        elem.classList.remove("unchecked");
+        elem.classList.add("checked");
+    }
+    //elem.append(document.createElement("div"));
 }
