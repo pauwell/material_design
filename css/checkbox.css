@@ -1,11 +1,11 @@
 .checkbox{
     position: relative;
     overflow: hidden;
-    margin: 40px 20px 30px;
     width: 48px;
     height: 48px;
     background-color: white;
-    border: 1px solid;
+    border: 3px solid coral;
+    border-radius: 4px;
     cursor: pointer;
 }
 
@@ -23,7 +23,7 @@
     transform: rotate(30deg);
 }
 .checkbox > div:last-of-type{
-    width: 42px;
+    width: 49px;
     top: 19px;
     left: 10px;
     transform: rotate(-60deg);
@@ -52,6 +52,12 @@
     animation-timing-function: ease-in;
 }
 
+.checkbox.unchecked{
+    animation-name: uncheck-outter;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
 .checkbox.unchecked > div{
     display: block;
 }
@@ -76,8 +82,8 @@
         transform: rotate(0);
     }
     100%{
-        top: 28px;
-        left: 1px;
+        top: 24px;
+        left: -5px;
         transform: rotate(30deg);
     }
 }
@@ -89,8 +95,8 @@
         transform: rotate(-50deg);
     }
     100%{
-        top: 19px;
-        left: 10px;
+        top: 16px;
+        left: 7px;
         transform: rotate(-60deg);
     }
 }
@@ -99,8 +105,8 @@
     0%{
         display: block;
         width: 29px;
-        top: 28px;
-        left: 1px;
+        top: 24px;
+        left: -5px;
         transform: rotate(30deg);
     }
     100%{
@@ -129,6 +135,12 @@
 }
 
 @keyframes check-outter{
+    70%{
+        transform: scale(0.9);
+    }
+}
+
+@keyframes uncheck-outter{
     70%{
         transform: scale(0.9);
     }

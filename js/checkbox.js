@@ -6,5 +6,4 @@ function check_box(elem){
         elem.classList.remove("unchecked");
         elem.classList.add("checked");
     }
-    //elem.append(document.createElement("div"));
 }

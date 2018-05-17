@@ -2,20 +2,21 @@
     background-color: coral;
     color: white;
     font-size: 1.5em;
-    border: 1px solid;
+    border: 0;
+    border-radius: 4px;
     position: relative;
     overflow: hidden;
     width: fit-content;
+    height: fit-content;
     padding: 10px 30px;
     cursor: pointer;
-    margin-top: 50px;
-    margin-left: 100px;
 
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    -ms-appearance: button;
-    -o-appearance: button;
-    appearance: button;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
 }
 
 .button > .background{

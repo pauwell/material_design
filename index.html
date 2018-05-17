@@ -12,14 +12,55 @@
     <link href="css/checkbox.css" rel="stylesheet">
     <link href="css/card.css" rel="stylesheet">
     <link href="css/button.css" rel="stylesheet">
+    <link href="css/toggle_switch.css" rel="stylesheet">
     <script src="js/expandable.js" type="text/javascript"></script>
     <script src="js/checkbox.js" type="text/javascript"></script>
+    <script src="js/toggle_switch.js" type="text/javascript"></script>
     <script src="js/ripple.js" type="text/javascript"></script>
+    <style>
+        /* Demo page styles. */
+        form > *:first-child{ grid-area: caption; }
+        .toggle-switch{ grid-area: switch; }
+        .button{ grid-area: button; }
+        .checkbox{ grid-area: checkbox; }
+
+        form{
+            background-color: white;
+            padding: 16px;
+            width: 90%;
+            margin: 16px auto; 
+
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-rows: auto 100px 100px;
+            grid-template-areas:
+                "caption caption caption caption"
+                "switch switch checkbox checkbox"
+                "button button button button";
+        }
+        form>*:first-child{ 
+            width: 100%; 
+            background-color: gray;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .toggle-switch, .button, .checkbox{
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
     <!-- Form example. -->
-    <form>
-        <!-- Test ripple with button. -->
+    <form class="shadow-dp2">
+        <!-- Form caption. -->
+        <h2>CONTACT FORM</h2>
+
+        <!-- Toggle switch demo. -->
+        <div class="toggle-switch shadow" onclick="toggle_switch(this);">
+            <div class="shadow-dp2"></div>
+        </div>
+
+        <!-- Button with ripple demo. -->
         <div class="button shadow-dp2" onclick="button_ripple(this);">
             <div class="background"></div>
             <p><b>Ripple me!</b></p>
