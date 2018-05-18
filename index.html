@@ -37,11 +37,12 @@
                 "expandable-label expandable"
                 "text-input button"; 
         }
-        .toggle-switch, .button, .checkbox, .text-input, .expandable, .expandable-label{
+        .toggle-switch, .button, .checkbox, .expandable, .expandable-label{
             margin: auto;
         }
-        .text-input, .text-input > input{
-            width: 100%;
+        .expandable-label{
+            font-weight: bold;
+            font-size: large;
         }
 
         /* Container. */
@@ -161,9 +162,9 @@
         </div>
 
         <!-- Expandable button demo. -->
-        <label class="expandable-label">Captcha</label>
+        <label class="expandable-label">Captcha:</label>
         <div class="expandable shadow-dp2" onclick="toggle_expandable(this);">
-            <p>Are you a human?</p>
+            <p>Can you maybe click me?</p>
         </div>
     </form>
 

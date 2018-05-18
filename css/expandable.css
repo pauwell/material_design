@@ -22,7 +22,6 @@
 
 @keyframes hide-expandable{
     0%{
-        background-color: white;
         color: transparent;
         height: 48px;
         width: 94%;
@@ -30,18 +29,19 @@
         margin-right: 3%;
         padding: 1em;
         border-radius: 3px;
+        border: none;
     }
     70%{
         color: transparent;
     }
     100%{
-        background-color: coral;
-        color: white;
+        color: coral;
         width: 48px;
         height: 48px;
+        border: 3px solid coral;
         border-radius: 48px;
         text-align: center;
-        line-height: 48px;
+        line-height: 45px;
         font-size: 2.7em;
         font-weight: bold;
         padding: 0;
@@ -50,23 +50,24 @@
 
 @keyframes show-expandable{
     0%{
-        background-color: coral;
         color: transparent;
         font-size: 0;
         width: 48px;
         height: 48px;
         border-radius: 48px;
+        border: 3px solid coral;
         padding: 0;
     }
     70%{
         color: transparent;
     }
     100%{
-        background-color: white;
         color: black;
         width: 94%;
         margin-left: 3%;
         margin-right: 3%;
         padding: 1em;
+        border: none;
+        line-height: normal;
     }
 }

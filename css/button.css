@@ -1,8 +1,8 @@
 .button{
-    background-color: coral;
-    color: white;
+    background-color: white;
+    color: coral;
+    border: 3px solid coral;
     font-size: 1.5em;
-    border: 0;
     border-radius: 4px;
     position: relative;
     overflow: hidden;
