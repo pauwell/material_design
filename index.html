@@ -24,32 +24,39 @@
         .button{ grid-area: button; }
         .checkbox{ grid-area: checkbox; }
         .text-input{ grid-area: text-input; }
+        .expandable{ grid-area: expandable; }
+        .expandable-label{ grid-area: expandable-label; }
 
         form{
-            background-color: white;
-            padding: 16px;
-            width: 90%;
-            margin: 16px auto; 
-
             display: grid;
-            grid-template-columns: 25% 25% 25% 25%;
-            grid-template-rows: auto 100px 100px;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 100px 64px 64px 100px;
             grid-template-areas:
-                "caption caption caption caption"
-                "switch switch checkbox checkbox"
-                "text-input text-input button button";
+                "caption caption"
+                "switch checkbox"
+                "expandable-label expandable"
+                "text-input button"; 
         }
-        form>*:first-child{ 
-            width: 100%; 
-            background-color: gray;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .toggle-switch, .button, .checkbox, .text-input{
+        .toggle-switch, .button, .checkbox, .text-input, .expandable, .expandable-label{
             margin: auto;
         }
         .text-input, .text-input > input{
             width: 100%;
+        }
+
+        /* Container. */
+        .container{
+            background-color: white;
+            padding: 16px;
+            width: 90%;
+            margin: 16px auto;
+            border-radius: 2px;
+        }
+        .container > .caption{
+            width: 100%; 
+            background-color: gray;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         /* Text input. */
@@ -120,9 +127,11 @@
 </head>
 <body>
     <!-- Form example. -->
-    <form class="shadow-dp2">
+    <form class="container shadow-dp2">
         <!-- Form caption. -->
-        <h2>CONTACT FORM</h2>
+        <div class="caption">
+            <h2>CONTACT FORM</h2>
+        </div>
 
         <!-- Toggle switch demo. -->
         <div class="toggle-switch shadow" onclick="toggle_switch(this);">
@@ -150,10 +159,16 @@
             <div class="background"></div>
             <p><b>Ripple me!</b></p>
         </div>
+
+        <!-- Expandable button demo. -->
+        <label class="expandable-label">Captcha</label>
+        <div class="expandable shadow-dp2" onclick="toggle_expandable(this);">
+            <p>Are you a human?</p>
+        </div>
     </form>
 
     <!-- Card demo. -->
-    <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+    <div class="container shadow-dp2">
         <div class="card shadow-dp2">
             <div class="background" style="background-image: url('../img/example_led.jpg');"></div>
             <div class="info">
@@ -182,18 +197,6 @@
                 <p><small>Art.-Nr.:  LC-EL-081-WW</small></p>
             </div>
         </div>
-    </div>
-    <hr>
-    <!-- Expandable button demo. -->
-    <div class="expandable shadow-dp2" onclick="toggle_expandable(this);">
-        <h1>CLICK ME TO CLOSE</h1>
-        <p>
-            Molestiae et qui hic magnam. Culpa a soluta delectus ab. Eius rerum impedit nobis et modi dolorum voluptatem. Molestias amet aut officia odio sed aliquam quaerat. Placeat tenetur exercitationem expedita blanditiis. Nulla corrupti quae harum non maiores.
-            Et voluptas ex aut. Est quis perspiciatis magnam quis optio omnis nam. Sapiente libero maxime nobis nobis et enim.
-            Mollitia et iusto et ullam voluptatem ut ipsam. Ut exercitationem exercitationem maxime doloribus.</p><p> Labore et voluptas ut ab veritatis voluptate autem. Aut omnis alias placeat officiis harum.
-            Saepe ad rem aut. Ut alias ratione fugiat ut ab. </p><p>Suscipit est nisi nemo. Debitis dolor odit magni qui repudiandae voluptas.
-            In aut et illo. Aut enim nesciunt cupiditate est. Error quidem non facere numquam non deserunt voluptatem et. Eius enim eum dolores. Beatae consequuntur quia autem consequatur.
-        </p>
     </div>
 </body>
 </html>

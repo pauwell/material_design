@@ -9,14 +9,14 @@
 }
 .expandable.hide{
     animation-name: hide-expandable;
-    animation-duration: 0.3s;
-    animation-timing-function: ease;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
 .expandable.show{
     animation-name: show-expandable;
-    animation-duration: 0.3s;
-    animation-timing-function: ease;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
 
@@ -24,7 +24,7 @@
     0%{
         background-color: white;
         color: transparent;
-        height: 250px;
+        height: 48px;
         width: 94%;
         margin-left: 3%;
         margin-right: 3%;
