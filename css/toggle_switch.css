@@ -39,11 +39,11 @@
 }
 
 @keyframes switch-on{
-    0%{ left: 29px; filter: blur(2px); background-color: rgb(187, 187, 187); }
+    0%{ left: 29px; background-color: rgb(187, 187, 187); }
     100%{ left: -3px; background-color: coral; }
 }
 
 @keyframes switch-off{
-    0%{ left: -3px; filter: blur(2px); background-color: coral; }
+    0%{ left: -3px; background-color: coral; }
     100%{ left: 29px; transform: scale(0.9); background-color: rgb(187, 187, 187); }
 }

@@ -23,6 +23,7 @@
         .toggle-switch{ grid-area: switch; }
         .button{ grid-area: button; }
         .checkbox{ grid-area: checkbox; }
+        .text-input{ grid-area: text-input; }
 
         form{
             background-color: white;
@@ -36,7 +37,7 @@
             grid-template-areas:
                 "caption caption caption caption"
                 "switch switch checkbox checkbox"
-                "button button button button";
+                "text-input text-input button button";
         }
         form>*:first-child{ 
             width: 100%; 
@@ -44,10 +45,78 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        .toggle-switch, .button, .checkbox{
+        .toggle-switch, .button, .checkbox, .text-input{
             margin: auto;
         }
+        .text-input, .text-input > input{
+            width: 100%;
+        }
+
+        /* Text input. */
+        .text-input{
+            position: relative;
+        }
+        .text-input > label{
+            position: absolute;
+            top: -3px;
+            left: 0;
+            font-weight: bold;
+            color: gray;
+        }
+        .text-input > input{
+            position: absolute;
+            top: 0; 
+            left: 0;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid lightgray;
+        }
+        .text-input > input:focus{
+            outline: none;
+            border-bottom: 3px solid coral;
+        }
+        .text-input.show > label{
+            animation-name: move-label-up;
+            animation-duration: 0.2s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        .text-input.hide > label{
+            animation-name: move-label-down;
+            animation-duration: 0.2s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes move-label-up{
+            100%{
+                top: -20px;
+                color: coral;
+                font-size: 0.8em;
+            }
+        }
+        @keyframes move-label-down{
+            0%{
+                top: -20px;
+            }
+            100%{
+                top: -3px;
+            }
+        }
     </style>
+    <script>
+        function text_input(type, elem){
+            if(elem.getElementsByTagName("input")[0].value.length != 0){
+                elem.classList.remove("hide");
+                elem.classList.add("show");
+            }else{
+                elem.classList.remove("show");
+                elem.classList.remove("hide");
+                elem.classList.add(type);
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Form example. -->
@@ -60,16 +129,26 @@
             <div class="shadow-dp2"></div>
         </div>
 
-        <!-- Button with ripple demo. -->
-        <div class="button shadow-dp2" onclick="button_ripple(this);">
-            <div class="background"></div>
-            <p><b>Ripple me!</b></p>
-        </div>
-
         <!-- Checkbox demo. -->
         <div class="checkbox shadow" onclick="check_box(this);">
             <div class="shadow-dp2"></div>
             <div class="shadow-dp2"></div>
+        </div>
+
+        <!-- Text input demo. -->
+        <div class="text-input">
+            <label>Search...</label>
+            <input 
+                type="text" 
+                onfocus="text_input('show', this.parentNode);" 
+                onblur="text_input('hide', this.parentNode);"
+            >
+        </div>
+
+        <!-- Button with ripple demo. -->
+        <div class="button shadow-dp2" onclick="button_ripple(this);">
+            <div class="background"></div>
+            <p><b>Ripple me!</b></p>
         </div>
     </form>
 
