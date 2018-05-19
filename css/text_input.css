@@ -1,0 +1,51 @@
+.text-input{
+    position: relative;
+}
+.text-input > label{
+    position: absolute;
+    top: -3px;
+    left: 0;
+    font-weight: bold;
+    color: gray;
+}
+.text-input > input{
+    position: absolute;
+    top: 0; 
+    left: 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid lightgray;
+}
+.text-input > input:focus{
+    outline: none;
+    border-bottom: 3px solid coral;
+}
+.text-input.show > label{
+    animation-name: move-label-up;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.text-input.hide > label{
+    animation-name: move-label-down;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-label-up{
+    100%{
+        top: -20px;
+        color: coral;
+        font-size: 0.8em;
+    }
+}
+@keyframes move-label-down{
+    0%{
+        top: -20px;
+    }
+    100%{
+        top: -3px;
+    }
+}

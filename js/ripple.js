@@ -8,14 +8,13 @@ document.onmousemove = ((event) => {
     mouse_y = event.pageY;
 });
 
-function button_ripple(elem){
+function ripple(elem){
     elem.classList.add("ripple");
 
     var elem_rect = elem.getBoundingClientRect();
     var local_x = mouse_x - elem_rect.left;
-    var local_y = mouse_y - elem_rect.top; 
-
-    var button = document.querySelector('.button>.background');
+    var local_y = mouse_y - document.body.scrollTop - elem_rect.top; 
+    var button = elem.querySelector('.background');
     button.style.left = (local_x - 34) + "px";
     button.style.top = (local_y - 34) + "px";
     setTimeout(()=>{ elem.classList.remove("ripple"); }, 200);
