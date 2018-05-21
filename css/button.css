@@ -1,15 +1,13 @@
 .button{
-    background-color: white;
-    color: coral;
-    border: 3px solid coral;
-    font-size: 1.5em;
+    background-color: #43a047;
+    color: black;
+    font-size: 1.3em;
     border-radius: 4px;
     position: relative;
     overflow: hidden;
     width: fit-content;
     height: fit-content;
     padding: 10px 30px;
-    cursor: pointer;
 
     -webkit-touch-callout: none; 
     -webkit-user-select: none;
@@ -17,6 +15,10 @@
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none; 
+}
+
+.button:hover{
+    cursor: pointer;
 }
 
 .button > .background{

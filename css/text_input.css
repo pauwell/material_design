@@ -15,10 +15,12 @@
     background-color: transparent;
     border: none;
     border-bottom: 1px solid lightgray;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
 }
 .text-input > input:focus{
     outline: none;
-    border-bottom: 3px solid coral;
+    border-bottom: 3px solid #00701a;
 }
 .text-input.show > label{
     animation-name: move-label-up;
@@ -37,7 +39,7 @@
 @keyframes move-label-up{
     100%{
         top: -20px;
-        color: coral;
+        color: #43a047;
         font-size: 0.8em;
     }
 }

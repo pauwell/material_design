@@ -1,11 +1,13 @@
 .expandable{
-    background-color: white;
-    cursor: pointer;
+    background-color: #43a047;
     width: 94%;
     margin-left: 3%;
     margin-right: 3%;
     padding: 0.2em;
     padding: 1em;
+}
+.expandable:hover{
+    cursor: pointer;
 }
 .expandable.hide{
     animation-name: hide-expandable;
@@ -35,10 +37,9 @@
         color: transparent;
     }
     100%{
-        color: coral;
+        color: black;
         width: 48px;
         height: 48px;
-        border: 3px solid coral;
         border-radius: 48px;
         text-align: center;
         line-height: 45px;

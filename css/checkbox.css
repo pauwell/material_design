@@ -3,15 +3,17 @@
     overflow: hidden;
     width: 48px;
     height: 48px;
-    background-color: white;
-    border: 3px solid rgb(187, 187, 187);
+    background-color: #43a047;
     border-radius: 4px;
+}
+
+.checkbox:hover{
     cursor: pointer;
 }
 
 .checkbox > div{
     position: absolute;
-    background-color: coral;
+    background-color: #00701a;
     height: 12px;
     display: none;
 }
@@ -139,7 +141,6 @@
         transform: scale(0.9);
     }
     100%{
-        border: 3px solid coral;
     }
 }
 
@@ -148,6 +149,5 @@
         transform: scale(0.9);
     }
     100%{
-        border: 3px solid rgb(187, 187, 187);
     }
 }

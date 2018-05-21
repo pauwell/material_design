@@ -3,15 +3,14 @@
     color: black;
 }
 .card b{
-    color: coral;
+    color: #00701a;
 }
 .card{
     border: 1px solid lightgray;
     background-color: white;
     position: relative;
     height: 400px;
-    width: 250px;      
-    cursor: pointer;      
+    width: 250px;            
 }
 
 .card > .background{
@@ -53,10 +52,14 @@
     padding: 20px 30px;
 }
 .text > *:first-child{
-    color: coral;
+    color: #00701a;
 }
 .text > *{
     word-wrap: break-word;
+}
+
+.card:hover{
+    cursor: pointer;
 }
 
 .card:hover > .background{

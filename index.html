@@ -66,6 +66,9 @@
         .tab-layout > .tab-bar > ul > li{
             width: 33.33%;
         }
+        .container > h1,h2,h3,h4,h5,h6{
+            text-align: center;
+        }
 
         /* Tab layout. */
         .tab-layout{
@@ -78,8 +81,8 @@
             height: 50px;
             width: 100%;
             font-weight: bold;
-            background-color: white;
-            color: coral;
+            background-color: #f05545;
+            color: white;
             z-index: 10;
         }
         .tab-layout > .tab-bar > ul{
@@ -99,13 +102,13 @@
             border-bottom: 3px solid lightgray;
         }
         .tab-layout > .tab-bar > ul > li:hover{
-            background-color: rgb(236, 236, 236);
+            background-color: #b71c1c;
         }
         .tab-layout > .tab-bar > ul > li:focus{
-            background-color: rgb(218, 218, 218);
+            background-color: #b71c1c;
         }
         .tab-layout > .tab-bar > ul > li.selected{
-            border-bottom-color: coral;
+            border-bottom-color: #43a047;
         }
 
         .tab-layout > .tab-bar > ul > li > .background{
@@ -140,6 +143,13 @@
             content_chunks.forEach(element => {
                 element.style.display = "none";
             });
+
+            var all_tabs = document.querySelectorAll(".tab-bar ul li");
+            all_tabs.forEach((element, index, arr) => {
+                if(element.classList.contains("selected")){
+                    select_tab(element);
+                }
+            });
         });
 
         function select_tab(elem){
@@ -166,7 +176,7 @@
     <div class="tab-layout">
         <div class="tab-bar">
             <ul>
-                <li onclick="select_tab(this); ripple(this);"><div class="background"></div>FORM</li>
+                <li onclick="select_tab(this); ripple(this);" class="selected"><div class="background"></div>FORM</li>
                 <li onclick="select_tab(this); ripple(this);"><div class="background"></div>GALLERY</li>
                 <li onclick="select_tab(this); ripple(this);"><div class="background"></div>LOREM IPSUM</li>
             </ul>
@@ -203,7 +213,7 @@
             <!-- Button with ripple demo. -->
             <div class="button shadow-dp2" onclick="ripple(this);">
                 <div class="background"></div>
-                <p><b>Ripple me!</b></p>
+                <p><b>RIPPLE</b></p>
             </div>
 
             <!-- Expandable button demo. -->
@@ -242,6 +252,14 @@
                     <p>LED Treppen-Licht Wand-Einbauleuchte, eckig, 8x8cm, 230V, warm-weiß</p>
                     <p><small>Art.-Nr.:  LC-EL-081-WW</small></p>
                 </div>
+            </div>
+        </div>
+
+        <!-- Last tab content -->
+        <div class="tab-content">
+            <div class="container shadow-dp2">
+                <h2>Under construction..</h2>
+                <p>Please check back later :^)</p>
             </div>
         </div>
     </div>

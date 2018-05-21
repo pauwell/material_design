@@ -2,26 +2,24 @@
     position: relative;
     width: 64px;
     height: 32px;
-    border: 3px solid coral;
+    background-color: #00701a;
     border-radius: 16px;
-    cursor: pointer;
 }
 .toggle-switch.off{
-    border-color: rgb(187, 187, 187); 
+    background-color: gray; 
 }
 .toggle-switch:hover{
+    cursor: pointer;
     transform: scale(1.02);
 }
 
 .toggle-switch > div{
     position: absolute;
-    top: -3px;
-    left: -3px;
     width: 32px;
     height: 32px;
     border-radius: 16px;
     /*border: 2px solid white;*/
-    background-color: coral;
+    background-color: #43a047;
 }
 
 .toggle-switch.on > div{
@@ -39,11 +37,11 @@
 }
 
 @keyframes switch-on{
-    0%{ left: 29px; background-color: rgb(187, 187, 187); }
-    100%{ left: -3px; background-color: coral; }
+    0%{ left: 32px; background-color: rgb(187, 187, 187); }
+    100%{ left: 0; background-color: #43a047; }
 }
 
 @keyframes switch-off{
-    0%{ left: -3px; background-color: coral; }
-    100%{ left: 29px; transform: scale(0.9); background-color: rgb(187, 187, 187); }
+    0%{ left: 0; background-color: #43a047; }
+    100%{ left: 32px; transform: scale(0.9); background-color: rgb(187, 187, 187); }
 }
