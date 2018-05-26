@@ -1,7 +1,7 @@
 .toggle-switch{
     position: relative;
     width: 64px;
-    height: 32px;
+    height: 20px;
     background-color: #00701a;
     border-radius: 16px;
 }
@@ -15,10 +15,10 @@
 
 .toggle-switch > div{
     position: absolute;
+    top: -6px;
     width: 32px;
     height: 32px;
     border-radius: 16px;
-    /*border: 2px solid white;*/
     background-color: #43a047;
 }
 
@@ -37,11 +37,11 @@
 }
 
 @keyframes switch-on{
-    0%{ left: 32px; background-color: rgb(187, 187, 187); }
+    0%{ left: 34px; background-color: rgb(187, 187, 187); }
     100%{ left: 0; background-color: #43a047; }
 }
 
 @keyframes switch-off{
     0%{ left: 0; background-color: #43a047; }
-    100%{ left: 32px; transform: scale(0.9); background-color: rgb(187, 187, 187); }
+    100%{ left: 34px; transform: scale(0.9); background-color: rgb(187, 187, 187); }
 }
