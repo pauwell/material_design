@@ -1,0 +1,65 @@
+.tab-layout{
+    margin-top: 70px;
+}
+.tab-layout > .tab-bar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    font-weight: bold;
+    background-color: #f05545;
+    color: white;
+    z-index: 10;
+}
+.tab-layout > .tab-bar > ul{
+    height: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+.tab-layout > .tab-bar > ul > li{
+    overflow: hidden;
+    position: relative;
+    min-width: 110px;
+    height: 50px;
+    text-align: center;
+    padding-top: 28px;
+    border-bottom: 3px solid lightgray;
+}
+.tab-layout > .tab-bar > ul > li:hover{
+    background-color: #b71c1c;
+}
+.tab-layout > .tab-bar > ul > li:focus{
+    background-color: #b71c1c;
+}
+.tab-layout > .tab-bar > ul > li.selected{
+    border-bottom-color: #43a047;
+}
+
+.tab-layout > .tab-bar > ul > li > .background{
+    background-color: rgb(29, 29, 29);
+    opacity: 0.7;
+    transform: scale(0);
+    position: absolute;
+    width: 68px;
+    height: 68px;
+    border-radius: 34px;
+    top: 0;
+    left: 0;
+}
+
+.tab-layout > .tab-bar > ul > li.ripple > .background{
+    animation-name: tab-item-ripple;
+    animation-duration: 0.2s;
+}
+
+@keyframes tab-item-ripple{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(3.6);
+    }
+}
