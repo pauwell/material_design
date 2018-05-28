@@ -7,3 +7,10 @@ body{
     font-family: 'Roboto', sans-serif;
     background-color: rgb(228, 228, 228);
 }
+a{
+    text-decoration: none;
+    color: black;
+}
+ul, ol{
+    list-style-type: none;
+}
