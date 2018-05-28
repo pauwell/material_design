@@ -1,9 +1,6 @@
-.tab-layout{
-    margin-top: 70px;
-}
 .tab-layout > .tab-bar{
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
     height: 50px;
     width: 100%;
