@@ -6,4 +6,6 @@ its pages.
 
 Keep this project completely seperate to the engine.
 
+Tested using Xampp v3.2.2 on Windows 7 Professional on an Apache 2.4.18 width Php 7.0.8.
+
 Paul Bernitz @2018
