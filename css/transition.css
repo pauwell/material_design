@@ -1,0 +1,27 @@
+.transition_out_right{
+    animation-name: anim_move_out_right;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes anim_move_out_right{
+    100%{
+        transform: translateX(100%);
+        display: none;
+    }
+} 
+
+.transition_out_left{
+    animation-name: anim_move_out_left;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes anim_move_out_left{
+    100%{
+        transform: translateX(-100%);
+        display: none;
+    }
+} 

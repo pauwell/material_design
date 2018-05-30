@@ -4,8 +4,8 @@ window.addEventListener("load", () => {
         element.style.display = "none";
     });
 
-    var all_tabs = document.querySelectorAll(".tab-bar ul li");
-    all_tabs.forEach((element, index, arr) => {
+    var tab_list = document.querySelectorAll(".tab-bar ul li");
+    tab_list.forEach((element, index, arr) => {
         if(element.classList.contains("selected")){
             select_tab(element);
         }
@@ -13,9 +13,11 @@ window.addEventListener("load", () => {
 });
 
 function select_tab(elem){
-    var all_tabs = document.querySelectorAll(".tab-bar ul li");
+
+    // UNCOMMENT PLEASE
+    /*var tab_list = document.querySelectorAll(".tab-bar ul li");
     var content_list = document.querySelectorAll(".tab-layout .tab-content");
-    all_tabs.forEach((element, index, arr) => {
+    tab_list.forEach((element, index, arr) => {
         if(element == elem){
             elem.classList.add("selected");
             if(content_list[index]){
@@ -25,7 +27,22 @@ function select_tab(elem){
             element.classList.remove("selected");
             if(content_list[index]){
                 content_list[index].style.display = "none";
+
+ 
             }  
         }
-    });
+    });*/
+
+
+    // REMOVE PLEASE
+    // Get all tab- and content-elements.
+    var tab_list = document.querySelectorAll(".tab-bar ul li");
+    var content_list = document.querySelectorAll(".tab-layout .tab-content");
+    tab_list.forEach((element, index, arr) => {
+    }
+    console.log(elem);
+
+    // @ Finish transitions.
+    content_list[index].classList.add("transition_out_left");
+
 }
