@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.addEventListener("load", () => {
+            /* 
+                Reference: https://www.w3schools.com/xml/tryit.asp?filename=try_dom_loadxmldoc2 
+            */ 
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this);
+                }
+            };
+            
+            xhttp.open("GET", "bugs.xml", true);
+            xhttp.send();
+
+            function myFunction(xml) {
+                var xmlDoc = xml.responseXML;
+                var info_list = xmlDoc.getElementsByTagName("info");
+                var fixed_list = xmlDoc.getElementsByTagName("fixed");
+                if(info_list.length != fixed_list.length){
+                    alert("Error in debug/bugs.xml: Length of info- and fixed-nodes is unequal.");
+                }
+                var output_container = document.getElementById("bugs-output");   
+
+                var tbl = document.createElement('table');
+                tbl.style.width = '100%';
+                tbl.style.borderCollapse = "collapse";
+                tbl.style.textAlign = "center";
+                tbl.style.fontFamily = "Consolas";
+                tbl.setAttribute('border', '1');
+
+                var tbdy = document.createElement('tbody');
+                for (var i = 0; i < info_list.length; i++) {
+                    var tr = document.createElement('tr');
+                    
+                    // Info.
+                    var td = document.createElement('td');
+                    var info = xmlDoc.getElementsByTagName("info")[i].childNodes[0].nodeValue;
+                    td.appendChild(document.createTextNode(info));
+                    tr.appendChild(td);
+
+                    // Fixed.
+                    var td = document.createElement('td');
+                    var fixed = xmlDoc.getElementsByTagName("fixed")[i].childNodes[0].nodeValue;
+                    if(fixed == "true") td.style.backgroundColor = "limegreen";
+                    else td.style.backgroundColor = "red";
+                    td.appendChild(document.createTextNode(fixed));
+                    tr.appendChild(td);
+
+                    tbdy.appendChild(tr);
+                }
+                tbl.appendChild(tbdy);
+                output_container.appendChild(tbl)
+            }         
+        });
+    </script>
+</head>
+<body>
+    <h1 style="text-align: center;">Bugs</h1>
+    <a href="../index.html"><b>Back to website</b></a>
+    <div id="bugs-output"></div>
+</body>
+</html>

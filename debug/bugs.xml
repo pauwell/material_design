@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bugs>
+    <entry>
+        <info>The switching between tab-contents should include a fluid transition.</info>
+        <fixed>false</fixed>
+    </entry>
+    <entry>
+        <info>Ripple effect bugs again on vertical scrolling (tab-bar).</info>
+        <fixed>false</fixed>
+    </entry>
+    <entry>
+        <info>On expandable-button the content gets mistaken if more than one instance.</info>
+        <fixed>false</fixed>
+    </entry>
+</bugs>
