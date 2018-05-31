@@ -17,7 +17,6 @@
     <link href="css/text_input.css" rel="stylesheet">
     <link href="css/tab_layout.css" rel="stylesheet">
     <link href="css/menu_icon.css" rel="stylesheet">
-    <link href="css/transition.css" rel="stylesheet">
     <script src="js/expandable.js" type="text/javascript"></script>
     <script src="js/checkbox.js" type="text/javascript"></script>
     <script src="js/toggle_switch.js" type="text/javascript"></script>
@@ -76,13 +75,20 @@
         }
         .tab-content{
             margin-top: 164px;
-            height: 1000px; /*TEST*/ 
         }
         .tab-content.gallery.container .card:nth-child(1) .background{
             background-image: url('../img/example_led.jpg');
         }
         .tab-content.gallery.container .card:nth-child(2) .background{
             background-image: url('../img/example_led2.jpg');
+        }
+
+        /* Test */
+        .tab-content-wrapper{
+            display: flex;
+        }
+        .tab-content{
+            flex: 0 0 100vw;
         }
 
         /* Header */
@@ -138,88 +144,94 @@
             <ul>
                 <li onclick="select_tab(this); ripple(this);" class="selected"><div class="background"></div>FORM</li>
                 <li onclick="select_tab(this); ripple(this);"><div class="background"></div>GALLERY</li>
-                <li onclick="select_tab(this); ripple(this);"><div class="background"></div>LOREM IPSUM</li>
+                <li onclick="select_tab(this); ripple(this);"><div class="background"></div>OPTIONS</li>
             </ul>
         </div>
 
-        <!-- Form demo. -->
-        <form class="tab-content container shadow-dp2">
-            <!-- Form caption. -->
-            <div class="caption">
-                <h2>CONTACT FORM</h2>
-            </div>
-
-            <!-- Toggle switch demo. -->
-            <div class="toggle-switch shadow" onclick="toggle_switch(this);">
-                <div class="shadow-dp2"></div>
-            </div>
-
-            <!-- Checkbox demo. -->
-            <div class="checkbox shadow" onclick="check_box(this);">
-                <div class="shadow-dp2"></div>
-                <div class="shadow-dp2"></div>
-            </div>
-
-            <!-- Text input demo. -->
-            <div class="text-input">
-                <label>Search...</label>
-                <input 
-                    type="text" 
-                    onfocus="text_input('show', this.parentNode);" 
-                    onblur="text_input('hide', this.parentNode);"
-                >
-            </div>
-
-            <!-- Button with ripple demo. -->
-            <div class="button shadow-dp2" onclick="ripple(this);">
-                <div class="background"></div>
-                <p><b>RIPPLE</b></p>
-            </div>
-
-            <!-- Expandable button demo. -->
-            <label class="expandable-label">Captcha:</label>
-            <div class="expandable shadow-dp2" onclick="toggle_expandable(this);">
-                <p>Can you maybe click me?</p>
-            </div>
-        </form>
-
-        <!-- Card demo. -->
-        <div class="tab-content gallery container shadow-dp2">
-            <div class="card shadow-dp2">
-                <div class="background"></div>
-                <div class="info">
-                    <a href="#"><p><b>&#10084;</b> like</p></a>
-                    <a href="#"><p><b>&#x23f0;</b> 32min</p></a>
+        <div class="tab-content-wrapper">
+            <!-- Form demo. -->
+            <form class="tab-content container shadow-dp2">
+                <!-- Form caption. -->
+                <div class="caption">
+                    <h2>CONTACT FORM</h2>
                 </div>
-                <div class="overlay">
-                </div>
-                <div class="text">
-                    <h3>LED Wandleuchte</h3>
-                    <p>Leuchte Vela für außen, eckig, schwarz, IP44, 4W, 200lm, warm-weiß</p>
-                    <p><small>Art.-Nr.:  LC-L-112-WW</small></p>
-                </div>
-            </div>
-            <div class="card shadow-dp2">
-                <div class="background"></div>
-                <div class="info">
-                    <a href="#"><p><b>&#10084;</b> like</p></a>
-                    <a href="#"><p><b>&#x23f0;</b> 32min</p></a>
-                </div>
-                <div class="overlay">
-                </div> 
-                <div class="text">
-                    <h3>LED Treppen-Licht</h3>
-                    <p>LED Treppen-Licht Wand-Einbauleuchte, eckig, 8x8cm, 230V, warm-weiß</p>
-                    <p><small>Art.-Nr.:  LC-EL-081-WW</small></p>
-                </div>
-            </div>
-        </div>
 
-        <!-- Last tab content -->
-        <div class="tab-content">
-            <div class="container shadow-dp2">
-                <h2>Under construction..</h2>
-                <p>Please check back later :^)</p>
+                <!-- Toggle switch demo. -->
+                <div class="toggle-switch shadow" onclick="toggle_switch(this);">
+                    <div class="shadow-dp2"></div>
+                </div>
+
+                <!-- Checkbox demo. -->
+                <div class="checkbox shadow" onclick="check_box(this);">
+                    <div class="shadow-dp2"></div>
+                    <div class="shadow-dp2"></div>
+                </div>
+
+                <!-- Text input demo. -->
+                <div class="text-input">
+                    <label>Search...</label>
+                    <input 
+                        type="text" 
+                        onfocus="text_input('show', this.parentNode);" 
+                        onblur="text_input('hide', this.parentNode);"
+                    >
+                </div>
+
+                <!-- Button with ripple demo. -->
+                <div class="button shadow-dp2" onclick="ripple(this);">
+                    <div class="background"></div>
+                    <p><b>RIPPLE</b></p>
+                </div>
+
+                <!-- Expandable button demo. -->
+                <label class="expandable-label">Captcha:</label>
+                <div class="expandable shadow-dp2" onclick="toggle_expandable(this, 1);">
+                    <p>Can you maybe click me?</p>
+                </div>
+            </form>
+
+            <!-- Card demo. -->
+            <div class="tab-content gallery container shadow-dp2">
+                <div class="card shadow-dp2">
+                    <div class="background"></div>
+                    <div class="info">
+                        <a href="#"><p><b>&#10084;</b> like</p></a>
+                        <a href="#"><p><b>&#x23f0;</b> 32min</p></a>
+                    </div>
+                    <div class="overlay">
+                    </div>
+                    <div class="text">
+                        <h3>LED Wandleuchte</h3>
+                        <p>Leuchte Vela für außen, eckig, schwarz, IP44, 4W, 200lm, warm-weiß</p>
+                        <p><small>Art.-Nr.:  LC-L-112-WW</small></p>
+                    </div>
+                </div>
+                <div class="card shadow-dp2">
+                    <div class="background"></div>
+                    <div class="info">
+                        <a href="#"><p><b>&#10084;</b> like</p></a>
+                        <a href="#"><p><b>&#x23f0;</b> 32min</p></a>
+                    </div>
+                    <div class="overlay">
+                    </div> 
+                    <div class="text">
+                        <h3>LED Treppen-Licht</h3>
+                        <p>LED Treppen-Licht Wand-Einbauleuchte, eckig, 8x8cm, 230V, warm-weiß</p>
+                        <p><small>Art.-Nr.:  LC-EL-081-WW</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last tab content -->
+            <div class="tab-content">
+                <div class="container shadow-dp2">
+                    <h2>Under construction..</h2>
+                    <p>Please check back later :^)</p>
+                </div>
+                <!-- Expandable button demo. -->
+                <div class="expandable shadow-dp2" onclick="toggle_expandable(this, 2);">
+                    <p>I will later expand to the whole size of the page down here.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -231,7 +243,7 @@
             <li><a href="#">Patterns</a></li>
             <li><a href="#">Usage</a></li>
             <li><a href="#">Products</a></li>
-            <li><a href="#">Contracts</a></li>
+            <li><a href="debug/bugs.html">Bug tracker</a></li>
       </ul>
     </div>
 </body>
