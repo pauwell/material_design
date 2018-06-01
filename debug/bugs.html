@@ -13,14 +13,15 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    myFunction(this);
+                    show_bugs(this);
                 }
             };
             
             xhttp.open("GET", "bugs.xml", true);
             xhttp.send();
 
-            function myFunction(xml) {
+            function show_bugs(xml) {
+                var xmlDoc = xml.responseXML;
                 var xmlDoc = xml.responseXML;
                 var info_list = xmlDoc.getElementsByTagName("info");
                 var fixed_list = xmlDoc.getElementsByTagName("fixed");
@@ -29,6 +30,7 @@
                 }
                 var output_container = document.getElementById("bugs-output");   
 
+                // Create table.
                 var tbl = document.createElement('table');
                 tbl.style.width = '100%';
                 tbl.style.borderCollapse = "collapse";
@@ -36,6 +38,18 @@
                 tbl.style.fontFamily = "Consolas";
                 tbl.setAttribute('border', '1');
 
+                // Table header.
+                var tr = document.createElement('tr')
+                tr.style.fontWeight = "bold";
+                var th = document.createElement('th');
+                th.appendChild(document.createTextNode("Description"));
+                tr.appendChild(th); // Heading 'Description'.
+                var th2 = document.createElement('th');
+                th2.appendChild(document.createTextNode("Fixed"));
+                tr.appendChild(th2);// Heading 'Fixed'.
+                tbl.appendChild(tr);
+
+                // Table body. 
                 var tbdy = document.createElement('tbody');
                 for (var i = 0; i < info_list.length; i++) {
                     var tr = document.createElement('tr');

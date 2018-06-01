@@ -10,6 +10,6 @@
     </entry>
     <entry>
         <info>On expandable-button the content gets mistaken if more than one instance.</info>
-        <fixed>false</fixed>
+        <fixed>true</fixed>
     </entry>
 </bugs>
