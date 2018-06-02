@@ -6,6 +6,7 @@ body, body *{
 body{
     font-family: 'Roboto', sans-serif;
     background-color: rgb(228, 228, 228);
+    overflow: hidden;
 }
 a{
     text-decoration: none;
