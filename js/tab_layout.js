@@ -2,6 +2,7 @@ var tab_list = null;
 var content_wrapper_list = null;
 var content_list = null;
 var selected_tab_index = 0;
+var is_switching = false;
 
 window.addEventListener("load", () => {
     tab_list = document.querySelectorAll(".tab-bar ul li");
@@ -15,7 +16,17 @@ window.addEventListener("load", () => {
     });
 });
 
+window.addEventListener("resize", () => {
+    select_tab(tab_list[selected_tab_index]); // XXX
+});
+
 function select_tab(elem){
+
+    // Ignore selection if still switching.
+    if(is_switching)
+        return;
+    is_switching = true;
+
     // Save current tab index.
     var previous_tab_index = selected_tab_index;
 
@@ -35,48 +46,26 @@ function select_tab(elem){
     });
 
 
-    var previous_content = content_list[previous_tab_index];
-    var selected_content = content_list[selected_tab_index];
-    console.log(previous_tab_index + ", " + selected_tab_index);
+    var previous_content = content_list[previous_tab_index]; // @ Unused
+    var selected_content = content_list[selected_tab_index]; // @ Unused
 
+    // Get view-size and positions.
     var view_width = document.documentElement.clientWidth;
     var current_x = previous_tab_index * view_width;
     var target_x = selected_tab_index * view_width;
-    console.log(current_x + ", " + target_x);
 
-    content_wrapper_list.forEach((element, index, arr) => {
-        element.style.transform = "translateX(-" + target_x + "px";
-    });
-
-    // UNCOMMENT PLEASE
-    /*var tab_list = document.querySelectorAll(".tab-bar ul li");
-    var content_list = document.querySelectorAll(".tab-layout .tab-content");
-    tab_list.forEach((element, index, arr) => {
-        if(element == elem){
-            elem.classList.add("selected");
-            if(content_list[index]){
-                content_list[index].style.removeProperty("display");
-            }
-        }else{
-            element.classList.remove("selected");
-            if(content_list[index]){
-                content_list[index].style.display = "none";
-
- 
-            }  
+    // Move content towards the target.
+    var interval_handler = setInterval(() => {
+        content_wrapper_list.forEach((element, index, arr) => {
+            var offset = 10 * (Math.abs(previous_tab_index - selected_tab_index) > 1 ? 2 : 1);
+            if(current_x < target_x) current_x += offset;
+            else if(current_x >= target_x) current_x -= offset;
+            element.style.transform = "translateX(-" + current_x + "px";
+        });
+        if(Math.abs(current_x - target_x) < 20){
+            current_x = target_x;
+            is_switching = false;
+            clearInterval(interval_handler);
         }
-    });*/
-
-
-    // REMOVE PLEASE
-    // Get all tab- and content-elements.
-    /*var tab_list = document.querySelectorAll(".tab-bar ul li");
-    var content_list = document.querySelectorAll(".tab-layout .tab-content");
-    tab_list.forEach((element, index, arr) => {
-    });
-    console.log(elem);
-
-    // @ Finish transitions.
-    content_list[index].classList.add("transition_out_left");
-*/
+    }, 1);
 }
